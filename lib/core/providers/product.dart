@@ -1,0 +1,27 @@
+//we use final if value not want to change
+//without final value can be change
+import 'package:flutter/material.dart';
+
+class Product with ChangeNotifier {
+  final String id;
+  final String title;
+  final String description;
+  final double price;
+  final String imageUrl;
+  bool isFavorite;
+
+  //create a constructor for initialize Product
+  Product({
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.price,
+    required this.imageUrl,
+    this.isFavorite = false,
+  });
+
+  void toggleFavoriteStatus() {
+    isFavorite = !isFavorite;
+    notifyListeners();
+  }
+}
