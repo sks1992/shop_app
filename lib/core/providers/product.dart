@@ -1,6 +1,4 @@
-//we use final if value not want to change
-//without final value can be change
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 class Product with ChangeNotifier {
   final String id;
@@ -10,7 +8,6 @@ class Product with ChangeNotifier {
   final String imageUrl;
   bool isFavorite;
 
-  //create a constructor for initialize Product
   Product({
     required this.id,
     required this.title,

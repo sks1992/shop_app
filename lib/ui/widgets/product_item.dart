@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/ui/screens/product_detail_screen.dart';
 
+import '../../core/providers/cart.dart';
 import '../../core/providers/product.dart';
+import '../screens/product_detail_screen.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({Key? key}) : super(key: key);
@@ -16,12 +17,12 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
+    final cart = Provider.of<Cart>(context, listen: false);
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
         footer: GridTileBar(
           backgroundColor: Colors.black87,
-          //Consumer for update ui
           leading: Consumer<Product>(
             builder: (ctx, product, _) => IconButton(
               icon: Icon(
@@ -33,7 +34,6 @@ class ProductItem extends StatelessWidget {
               },
             ),
           ),
-
           title: Text(
             product.title,
             textAlign: TextAlign.center,
@@ -42,7 +42,9 @@ class ProductItem extends StatelessWidget {
             icon: const Icon(
               Icons.shopping_cart,
             ),
-            onPressed: () {},
+            onPressed: () {
+              cart.addItem(product.id, product.price, product.title);
+            },
             color: Theme.of(context).colorScheme.secondary,
           ),
         ),

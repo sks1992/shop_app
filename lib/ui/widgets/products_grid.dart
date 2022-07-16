@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/ui/widgets/product_item.dart';
 
+import './product_item.dart';
 import '../../core/providers/products.dart';
 
 class ProductsGrid extends StatelessWidget {
-  const ProductsGrid({Key? key, required this.showFavs}) : super(key: key);
-
   final bool showFavs;
+
+  const ProductsGrid(this.showFavs, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
