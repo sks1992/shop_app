@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/core/providers/products.dart';
 import 'package:shop_app/ui/screens/cart_screen.dart';
+import 'package:shop_app/ui/screens/edit_product_screen.dart';
 import 'package:shop_app/ui/screens/orders_screen.dart';
 import 'package:shop_app/ui/screens/product_detail_screen.dart';
 import 'package:shop_app/ui/screens/products_overview_screen.dart';
+import 'package:shop_app/ui/screens/user_products_screen.dart';
 
 import 'core/providers/cart.dart';
 import 'core/providers/orders.dart';
@@ -30,6 +32,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
           title: 'MyShop',
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             fontFamily: 'Lato',
             colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
@@ -40,23 +43,9 @@ class MyApp extends StatelessWidget {
             ProductDetailScreen.routeName: (ctx) => const ProductDetailScreen(),
             CartScreen.routeName: (ctx) => const CartScreen(),
             OrdersScreen.routeName: (ctx) => const OrdersScreen(),
+            UserProductsScreen.routeName: (ctx) => const UserProductsScreen(),
+            EditProductScreen.routeName: (ctx) => const EditProductScreen(),
           }),
     );
   }
 }
-
-// class MyHomePage extends StatelessWidget {
-//   const MyHomePage({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title:const Text("MyShop"),
-//       ),
-//       body:const Center(
-//         child: Text("Let's builds a page"),
-//       ),
-//     );
-//   }
-// }
